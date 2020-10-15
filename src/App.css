@@ -1,0 +1,151 @@
+body {
+  font-family: sans-serif;
+  padding: 0 0.5em 0.5em 0.5em;
+
+}
+.containerx{
+  width: 100%;
+  height: 1000px;
+  background: linear-gradient(-70deg, #010627 35%, rgb(3 6 56 / 24%) 99%), url(/static/media/home.45cba908.jpg);
+  background-size: cover;
+}
+
+/*header & Nav*/
+.headerContainer{
+  width: 100%;
+  background-color:#010627;
+}
+.navbar{
+  border: 0;
+  border-top: 1px solid #5050a2 ;
+  border-radius: 0;
+}
+.navbar-inverse{
+  background-color: #05055877;
+  border-color:none;
+}
+.leftHeader{
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+  
+}
+
+.logo{
+  width: 50px;
+  height: 50px;
+  padding: 0.5em;
+}
+.rightHeader{
+width: 100%;
+box-sizing: border-box;
+
+}
+
+/*login*/
+.login{
+  width: 40%;
+  background-color: #0005299e;
+  padding: 5%;
+  margin-top: 5%;
+}
+
+.input-group{
+  width: 100%;
+  margin-bottom: 25px;
+}
+.fgt{
+  float: right;
+    font-style: oblique;
+    padding-right: 10px;
+    color: #c12389;
+}
+
+
+/*addmission*/
+label{
+  float: left;
+    color: aliceblue;
+}
+.admission{
+margin-top: 0;
+padding: 4%;
+border-top: 2px solid #c2185be8;
+}
+.step-progress{
+  width: 100px;
+  height: 26px;
+  /* background-color: #ff9b3beb; */
+  /* clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); */
+}
+.label-info {
+  background-color:  #c2185be8;
+  float: right;
+  border-radius: 32px;
+  margin: 5px 14px 5px 5px;
+}
+.next{
+  border-radius: 17px;
+    background-color: #11a7047d;
+    width: 155px;
+    height: 35px;
+    color: aliceblue;
+    float: right;
+    font-family: monospace;
+    font-size: 18px;
+}
+.prev{
+  
+    background-color:#88075199;
+    
+    float: left;
+    
+}
+.preview{
+  padding-top: 10px;
+    padding-bottom: 10px;
+    width: 80%;
+    margin-top: 0;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: aliceblue;
+}
+h2{
+  margin-bottom: 3px;
+}
+.previewHeader{
+  border-bottom: 1px solid red;
+}
+
+.leftPreview{
+  width: 50%;
+    height: 200px;
+    background-color: antiquewhite;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 10px;
+    float: left;
+}
+.leftPreviewAdd{
+  width: 70%;
+}
+.rightPreview{
+  width: 50%;
+  float: right;
+}
+.profile{
+  width: 29%;
+    background-color: #297f7f;
+    float: right;
+    height: 200px;
+}
+@media screen and (min-width: 480px) {
+.navbar{
+  position: inherit;
+  z-index: 100;
+}
+.login{
+  /* width: 51%; */
+  
+}
+}
