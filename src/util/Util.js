@@ -2,7 +2,7 @@
 // #000000 darkmode
 
 
-const Util = {
+let Util = {
   Default: {
     BackgroundColor: { backgroundColor: "rgb(187 220 216 / 50%)", color: "#00000091" },
   }

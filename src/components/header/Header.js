@@ -11,7 +11,7 @@ export const Header = () => {
             <img src={require('../../static/logo192.png')} className="logo" />
           </div>
           <div>
-            <h1 style={Object.assign(Util.HeaderFont, { marginTop: 0 })}>The School Of Mathmatis</h1>
+            <h1 style={ {fontFamily: "monospace",color: "#e2dcdc",fontFamily: "cursive",color: "#e2dcdc", marginTop: 0 }}>The School Of Mathmatis</h1>
           </div>
         </center>
       </div>

@@ -1,76 +1,63 @@
 import React from "react";
 import NumberFormat from 'react-number-format';
-function FinalStep(props) {
+import axios from 'axios'
+function Step3(props) {
+  const handelClick=(ev)=>{
+    ev.preventDefault();
+    props.state.email=window.sessionStorage.getItem("email");
+    console.log("values of step 3", props.state)
+    axios.post('http://localhost:3001/api/admission',props.state)
+  }
+  
   return (
     <div >
       <div className="step-progress"><h1><span class="label label-info">3</span></h1></div>
       <div className="login admission">
 
         <form>
+          <div class="form-group">
+            <label for="prevedu">Discription of Previous Education :</label>
+            <textarea name="prevedu" className="form-control" rows="5" placeholder="Enter your  previous education details.." value={props.getState('prevedu')} onChange={props.handleChange}></textarea>
+          </div>
           <div className="row">
             <div className="col-md-6">
+
+
               <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="name" className="form-control" id="name" placeholder="Enter your name" />
+                <label for="school">School/Institute :</label>
+                <input type="text" name="school" className="form-control" value={props.getState('school')} onChange={props.handleChange} placeholder="school" />
               </div>
               <div className="form-group">
-                <label for="DOB">Date of Birth:</label>
-                {/* <input type="text" className="form-control" id="" /> */}
-                <NumberFormat format="##/##/####" placeholder="DD/MM/YY" className="form-control" name="mob" />
-              </div>
-              <div class="form-group">
-                <label for="father">Father's Name :</label>
-                <input type="father" className="form-control" id="father" placeholder="Father's Name" />
-              </div>
-              <div className="form-group">
-                <label for="mother">Mother's Name:</label>
-                <input type="text" className="form-control" id="mother" placeholder="Mother's Name" />
+                <label for="marks">Total Marks :</label>
+                <input type="text" className="form-control" name="marks" value={props.getState('marks')} onChange={props.handleChange} placeholder="Marks" />
               </div>
             </div>
 
 
             <div className="col-md-6">
+
+
               <div class="form-group">
-                <label for="name">Last Name:</label>
-                <input type="name" className="form-control" id="name" placeholder="Enter your name" />
-              </div>
-              <div className="form-group">
-                <label for="DOB">Contact No. :</label>
-                {/* <input type="text" className="form-control" id="" /> */}
-                <NumberFormat format="+91 (###) ###-####" className="form-control" name="mob" />
-              </div>
-              <div className="form-group">
-                <label for="DOB">Contact No. :</label>
-                {/* <input type="text" className="form-control" id="" /> */}
-                <NumberFormat format="+91 (###) ###-####" className="form-control" name="mob" />
+                <label for="qulification">Qulification :</label>
+                <input type="text" name="qulification" value={props.getState('qulification')} onChange={props.handleChange} className="form-control" placeholder="Higer qulification" />
               </div>
 
               <div className="form-group">
-                <label for="DOB">Contact No. :</label>
-                {/* <input type="text" className="form-control" id="" /> */}
-                <NumberFormat format="+91 (###) ###-####" className="form-control" name="mob" />
+                <label for="percentage">Persentage . :</label>
+                <input type="text" name="percentage" value={props.getState('percentage')} onChange={props.handleChange} className="form-control" placeholder="percentage" />
               </div>
             </div>
           </div>
-          <div className="form-group">
-            <label style={{ float: "none" }} class="checkbox-inline"><input type="radio" value="" />  Male</label>
-            <label style={{ float: "none" }} class="checkbox-inline"><input type="radio" value="" />  Female</label>
-            <label style={{ float: "none" }} class="checkbox-inline"><input type="radio" value="" />  Transgender</label>
-          </div>
+
+          {/* <label className="custom-file-label" for="customFile" >Choose file</label> */}
+          {/* <input type="file" className="custom-file-input" name="profile" value={props.getState('prevedu')} onChange={props.handleChange} id="customFile" /> */}
+
+
           <div className="form-group">
             {props.step.hasPrev() && <button className="next prev" onClick={props.prev}>Previous</button>}
 
-            {
-              <button
-                data-testid="last-next"
-                onClick={props.next}
-                style={{ color: "#6f7275" }}
-                className="next"
-                disabled={props.step.isLast()}
-              >
-                Next
-				</button>
-            }
+           <button className="next" onClick={ev=>handelClick(ev)}>Save</button>
+            
           </div>
         </form>
 
@@ -82,4 +69,4 @@ function FinalStep(props) {
   );
 }
 
-export default FinalStep;
+export default Step3;

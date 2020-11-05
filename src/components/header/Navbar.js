@@ -1,4 +1,7 @@
 import React from 'react'
+import { NavLink } from "react-router-dom";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 export const Navbar = () => {
 
@@ -30,21 +33,30 @@ export const Navbar = () => {
         </div>
         <div className="collapse navbar-collapse" id="myNavbar">
           <ul className="nav navbar-nav">
-            <li className="active"><a href="#">Home</a></li>
+            <li className="active"><NavLink  exact to="/">
+            Home
+              </NavLink></li>
             <li className="dropdown">
-              <a className="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span className="caret"></span></a>
+              <a className="dropdown-toggle" data-toggle="dropdown" href="#">About <span className="caret"></span></a>
               <ul className="dropdown-menu">
-                <li><a href="#">Page 1-1</a></li>
-                <li><a href="#">Page 1-2</a></li>
-                <li><a href="#">Page 1-3</a></li>
+                <li><a href="#">About School</a></li>
+                <li><a href="#">About Teachers</a></li>
+                <li><a href="#">About Students</a></li>
               </ul>
             </li>
-            <li><a href="#">Notification</a></li>
-            <li><a href="#">Admission</a></li>
+            <li><NavLink  exact to="/notification">Notification</NavLink></li>
+            <li><NavLink  exact to="/admission">
+              Admission
+              </NavLink></li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
-            <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+          
+          <li>
+          <Popup trigger={<a href="#" ><span class="badge badge-edit">2</span><span class="glyphicon glyphicon-bell"></span> Alert</a>}  position="bottom center">
+            <div>Popup content here !!</div>
+          </Popup></li>
+            <li><NavLink  exact to="/reg"><span className="glyphicon glyphicon-user"></span> Sign Up</NavLink></li>
+            <li><NavLink exact to='/login'><span className="glyphicon glyphicon-log-in"></span> Login</NavLink></li>
           </ul>
         </div>
       </div>
