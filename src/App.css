@@ -292,6 +292,111 @@ a {
 .notfication > .Collapsible {
   background: linear-gradient(-70deg, #cc829373 35%, rgb(206 9 82) 99%);
 }
+/*library*/
+.library {
+  padding: 2% 6% 0% 6%;
+}
+.library-header {
+  width: 100%;
+  background-color: #437684ba;
+  height: 73px;
+  padding: 19px;
+}
+.library-content {
+  margin-top: 2px;
+  height: 100%;
+}
+.modal-dialog {
+  width: 679px;
+}
+.card {
+  width: 170px;
+  background-color: antiquewhite;
+  border-radius: 6px;
+  padding: 11px;
+}
+.card-img-top {
+  width: 100%;
+}
+.download {
+  padding: 20px;
+  height: 656px;
+}
+
+.nav-tabs {
+  border-left: 0;
+  width: 18%;
+  float: left;
+  border-bottom: 0;
+}
+
+.nav-tabs > li > a {
+  border-radius: 0;
+  border: 0;
+  background: linear-gradient(-70deg, rgb(3 6 56 / 24%) 35%, #010627 99%);
+}
+
+.nav-tabs > li {
+  float: left;
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+.nav-tabs > li.active > a {
+  color: #efe6e6;
+  cursor: default;
+  background-color: #010627;
+  border: 0;
+  border-bottom-color: transparent;
+  border-right: 8px solid #a9187c;
+}
+.nav-tabs > li > a:hover {
+  color: white;
+  border-right: 9px solid #010627;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+  color: #efe6e6;
+  cursor: default;
+  background-color: #010627;
+  border: 0;
+  border-bottom-color: transparent;
+  border-right: 8px solid #a9187c;
+}
+.nav > li > a:hover {
+  text-decoration: none;
+  background-color: #a9187c;
+}
+.tab-content-custom {
+  background-color: #07153394;
+  width: 80%;
+  float: right;
+  padding: 0px 25px 10px 25px;
+  height: 100%;
+  color: #f7f0e4;
+  border-top: 2px solid #ad137d;
+}
+.book-card {
+  width: 189px;
+  /* background-color: aliceblue; */
+  float: left;
+  height: 245px;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  /* background-color: DodgerBlue; */
+}
+
+.flex-container > div {
+  /* background-color: #f1f1f1; */
+  /* width: 160px; */
+  margin: 10px;
+  /* text-align: center;
+  line-height: 75px;
+  font-size: 30px; */
+}
 ////////
 
 @media screen and (min-width: 480px) {
