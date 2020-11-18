@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const AddCourses = () => {
   return (
@@ -38,7 +38,7 @@ export const AddCourses = () => {
           name="bclass"
           className="form-control"
           onChange={props.handleChange}
-          placeholder="Mother's Name"
+          placeholder=""
         />
       </div>
     </div>

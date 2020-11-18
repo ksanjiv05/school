@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  Redirect,
+  useHistory,
+} from 'react-router-dom';
 import './App.css';
 import { Header } from './components/header/Header';
 import { Login } from './components/Auth/Login';
@@ -21,8 +27,15 @@ import Download from './components/downloads/Download';
 
 const App = () => {
   const [status, setStatus] = useState(false);
-
+  const [header, setHeader] = useState(false);
+  let history = useHistory();
   const auth = new Auth();
+
+  const handelHeader = () => {
+    setHeader(true);
+    console.log('--------', header);
+  };
+
   useEffect(() => {
     async function authenticat() {
       const isAuth = await auth.isAuthenticated();
@@ -35,14 +48,19 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="containerx">
-        <Header />
+        {header ? '' : <Header />}
+
         <Switch>
           {/* <Route exact path="/" component={DisplayDocument} /> */}
           <Route exact path="/" component={Slider} />
           <Route exact path="/reg" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/notification" component={Notification} />
-          <Route exact path="/admin" component={Admin} />
+          <Route
+            exact
+            path="/admin"
+            render={() => <Admin handelHeader={handelHeader} />}
+          />
           <Route exact path="/admission" component={Index} />
           <Route exact path="/library" component={Library} />
           <Route exact path="/download" component={Download} />

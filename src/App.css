@@ -162,19 +162,19 @@ h2 {
   background: linear-gradient(to left, #e2e0e2 44%, #47a7aa 81%);
 }
 .scard {
-  width: 240px;
-  height: 150px;
+  width: 228px;
+  height: 149px;
   /* background-color: #bfa8c3; */
   text-align: center;
   padding: 11px;
-  margin: 8px 0px 0px 8px;
+  margin: 8px 3px 0px 8px;
   float: left;
-  border-radius: 13px;
+  /* border-radius: 13px; */
   background-blend-mode: hard-light;
   text-shadow: 2px 2px 4px #000000;
-  box-shadow: 0 10px 9px 0 rgba(0, 0, 0, 0.2), 0 6px 23px 0 rgba(0, 0, 0, 0.19);
-  /* background: linear-gradient(to bottom, #491256 1%, #8e5371 100%); */
-  background: linear-gradient(to bottom, #161256 1%, #06a099b3 100%);
+  /* box-shadow: 0 10px 12px 0 rgb(0 0 0), 0 2px 38px 0 rgb(0 0 0); */
+  box-shadow: 8px 8px 19px grey;
+  background: linear-gradient(to bottom, #340240 1%, #f70b83 100%);
 }
 .scard-header {
   height: 34%;
@@ -222,18 +222,29 @@ a {
   border-radius: 11px;
 }
 .topAdminHeader {
-  height: 170px;
+  height: 190px;
   /* height: 80%; */
-  background: linear-gradient(to top, #47a7aa 22%, #e2e0e2 100%);
-  /* padding: 21px; */
+  /* background: linear-gradient(to top, #47a7aa 22%, #e2e0e2 100%); */
+  padding: 16px;
   border-radius: 13px;
   margin-bottom: 10px;
 }
-.bottomAdminHeader {
-  height: 80%;
+.middleAdminHeader {
+  height: 350px;
   /* background-color: #efefef; */
   padding: 21px;
-  border-radius: 13px;
+  /* border-radius: 13px; */
+  border-top: 2px solid #a90d8e;
+}
+.bottomAdminHeader {
+  height: 550px;
+  /* background-color: #451a94; */
+  padding: 21px;
+  /* border-radius: 13px; */
+  border-top: 2px solid #a90d8e;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #2870759c;
 }
 .list-group-item.active {
   background-color: #6c1a4f;
@@ -257,9 +268,22 @@ a {
   float: right;
 }
 .dataTables_filter > label {
-  color: #000000;
+  color: #b3adad;
+}
+.leftchart {
+  width: 50%;
+  height: 100%;
+  float: left;
+  box-sizing: border-box;
+}
+.rightchart {
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  float: right;
 }
 
+/*88888888888888888888888888888888888888888888888888888888*/
 .Collapsible {
   background-color: #0c0c2f;
   padding: 10px 1px 2px 2px;
