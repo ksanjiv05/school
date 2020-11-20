@@ -24,6 +24,7 @@ import DisplayDocument from './components/library/DisplayDocument';
 import Print from './components/library/Print';
 import Library from './components/library/Library';
 import Download from './components/downloads/Download';
+import PageNotFound from './components/PageNotFound';
 
 const App = () => {
   const [status, setStatus] = useState(false);
@@ -48,7 +49,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="containerx">
-        {header ? '' : <Header />}
+        {header ? '' : <Header isAuth={status} />}
 
         <Switch>
           {/* <Route exact path="/" component={DisplayDocument} /> */}
@@ -95,6 +96,7 @@ const App = () => {
               status ? <Preview /> : <Redirect to="/login" />
             }
           />
+          <PageNotFound />
         </Switch>
       </div>
     </BrowserRouter>

@@ -5,6 +5,31 @@ import DataTables from './DataTables';
 import Table from './Table';
 import BootTab from './BootTab';
 import Charts from './Charts';
+import Staff from './Staff/Staff';
+import Student from './Student/Student';
+import Course from './course/Course';
+import Downloads from './downloads/Downloads';
+
+const TableData = {
+  tHeader: ['Name', 'RollNumber', 'Contact', 'class', 'email'],
+  tData: [
+    {
+      name: 'sanjiv',
+      roll: 'TNM000252',
+      contact: '7845123669',
+      class: '12th',
+      email: 'ksanjiv0005@gmail.com',
+    },
+    {
+      name: 'ksanjiv',
+      roll: 'TNM010252',
+      contact: '7849123669',
+      class: '12th',
+      email: 'ksanjiv005@gmail.com',
+    },
+  ],
+};
+
 const Admin = (props) => {
   const [logout, setLogout] = useState(false);
   useEffect(() => {
@@ -15,47 +40,6 @@ const Admin = (props) => {
     console.log('clicked');
   };
   return (
-    //   <div style={{ height: "100%" }}>
-    //     <div className="row" style={{ height: "100%" }}>
-    //       {/* <AdminHeader /> */}
-    //       <div
-    //         className="col-sm-2  "
-    //         style={{ height: "100%", padding: 0 ,backgroundColor: "#3f939e"}}>
-    //         <Links />
-    //       </div>
-    //       <div className="col-sm-10 admindash" style={{ height: "100%" }}>
-    //         <div className="topAdminHeader">
-    //           <AdminHeader />
-    //           <div className="leftAdminHeader">
-    //             <div className="adminProfile" onClick={() => handelClick()}>
-    //               <img src={require('../../static/pro.jpg')} width={100} height={100} />
-    //             </div>
-    //             {logout ? (
-    //               <div className="logout">
-    //                 {/* <Button
-    //                   icon="camera"
-    //                   mode="contained"
-    //                   onPress={() => console.log("Pressed")}>
-    //                   Press me
-    //                 </Button> */}
-    //               </div>
-    //             ) : (
-    //               ""
-    //             )}
-    //           </div>
-    //         </div>
-    //         <div className="bottomAdminHeader">
-    //           {/* <DataTables /> */}
-    //           <Table />
-    //           {/* <BootTab /> */}
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // );
-
-    /////////////////////////////////////////////////////
-
     <div className="download" style={{ height: '100%' }}>
       <ul className="nav nav-tabs">
         <li className="active">
@@ -105,25 +89,21 @@ const Admin = (props) => {
           </div>
           <div className="bottomAdminHeader">
             {/* <DataTables /> */}
-            <Table />
+            {/* <Table tableData={TableData} /> */}
             {/* <BootTab /> */}
           </div>
         </div>
         <div id="mstudents" className="tab-pane fade">
-          <h3>students</h3>
-          <p>Some content in menu 1.</p>
+          <Student />
         </div>
         <div id="mstaff" className="tab-pane fade">
-          <h3>Staff</h3>
-          <p>Some content in menu 2.</p>
+          <Staff />
         </div>
         <div id="mcourse" className="tab-pane fade">
-          <h3>course</h3>
-          {/* <Result /> */}
+          <Course />
         </div>
         <div id="mdownloads" className="tab-pane fade">
-          <h3>downloads</h3>
-          <p>Some content in menu 2.</p>
+          <Downloads />
         </div>
         <div id="mlibrary" className="tab-pane fade">
           <h3>Library</h3>

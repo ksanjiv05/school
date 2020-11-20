@@ -4,11 +4,12 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 const alert = ['You are successfully applide ! ', `Please Upload document`];
-export const Navbar = () => {
+export const Navbar = (props) => {
+  const { isAuth } = props;
   console.log(
-    window.innerWidth +
-      '-----------------------------------' +
-      window.innerHeight
+    window.innerWidth + '-----------------------------------' + isAuth,
+    '---',
+    props
   );
   return (
     <nav className="navbar navbar-inverse">
@@ -58,11 +59,15 @@ export const Navbar = () => {
                 Admission
               </NavLink>
             </li>
-            <li>
-              <NavLink exact to="/library">
-                Library
-              </NavLink>
-            </li>
+            {isAuth ? (
+              <li>
+                <NavLink exact to="/library">
+                  Library
+                </NavLink>
+              </li>
+            ) : (
+              ''
+            )}
             <li>
               <NavLink exact to="/download">
                 Downloads
@@ -70,25 +75,29 @@ export const Navbar = () => {
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
-            <li>
-              <Popup
-                trigger={
-                  <a href="#">
-                    <span className="badge badge-edit">2</span>
-                    <span className="glyphicon glyphicon-bell"></span> Alert
-                  </a>
-                }
-                position="bottom center"
-              >
-                <div>
-                  <ul>
-                    {alert.map((value, index) => (
-                      <li key={index}>{value}</li>
-                    ))}
-                  </ul>
-                </div>
-              </Popup>
-            </li>
+            {isAuth ? (
+              <li>
+                <Popup
+                  trigger={
+                    <a href="#">
+                      <span className="badge badge-edit">2</span>
+                      <span className="glyphicon glyphicon-bell"></span> Alert
+                    </a>
+                  }
+                  position="bottom center"
+                >
+                  <div>
+                    <ul>
+                      {alert.map((value, index) => (
+                        <li key={index}>{value}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </Popup>
+              </li>
+            ) : (
+              ''
+            )}
             <li>
               <NavLink exact to="/reg">
                 <span className="glyphicon glyphicon-user"></span> Sign Up

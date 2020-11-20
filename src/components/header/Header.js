@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar } from './Navbar';
 
-export const Header = () => {
+export const Header = ({ isAuth }) => {
   return (
     <div className="headerContainer">
       <div className="leftHeader">
@@ -25,7 +25,7 @@ export const Header = () => {
         </center>
       </div>
       <div className="rightHeader">
-        <Navbar />
+        <Navbar isAuth={isAuth} />
       </div>
     </div>
   );

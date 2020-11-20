@@ -157,7 +157,7 @@ h2 {
   text-align: center;
 }
 
-/***/
+/***********************************admin*********************************************************/
 .admindash {
   background: linear-gradient(to left, #e2e0e2 44%, #47a7aa 81%);
 }
@@ -283,6 +283,18 @@ a {
   float: right;
 }
 
+.add-staff {
+  width: 100%;
+  background-color: #0ca00cf0;
+  height: 46px;
+  border-radius: 3px;
+  color: WHITE;
+  font-size: 32px;
+  font-weight: 200;
+  font-family: 'Glyphicons Halflings';
+  cursor: pointer;
+}
+
 /*88888888888888888888888888888888888888888888888888888888*/
 .Collapsible {
   background-color: #0c0c2f;
@@ -314,7 +326,7 @@ a {
   padding: 1% 8% 1% 8%;
 }
 .notfication > .Collapsible {
-  background: linear-gradient(-70deg, #cc829373 35%, rgb(206 9 82) 99%);
+  background: linear-gradient(-70deg, #716f6f73 35%, rgb(1 6 39) 99%);
 }
 /*library*/
 .library {
@@ -421,7 +433,70 @@ a {
   line-height: 75px;
   font-size: 30px; */
 }
-////////
+/*------------------------------------**/
+.rcontainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.rcontainer input {
+  /* position: absolute; */
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 5%;
+}
+
+/* On mouse-over, add a grey background color */
+
+/* When the radio button is checked, add a blue background */
+.rcontainer input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.rcontainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.rcontainer .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 5%;
+  background: white;
+}
+.error {
+  color: #bd4051;
+  font-weight: 600;
+}
 
 @media screen and (min-width: 480px) {
   .navbar {
