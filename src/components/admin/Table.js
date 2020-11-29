@@ -18,30 +18,31 @@ const Table = (props) => {
       {tData == undefined || tData == null ? (
         ''
       ) : (
-        <table id="example" className="table table-striped table-bordered">
-          <thead>
-            <tr>
-              {/* <th>Name</th>
+        <div>
+          <table id="example" className="table table-striped table-bordered">
+            <thead>
+              <tr>
+                {/* <th>Name</th>
             <th>Position</th>
             <th>Office</th>
             <th>Age</th>
             <th>Start date</th>
             <th>Salary</th>
             <th>Acation</th> */}
-              {tHeader.map((v, i) => (
-                <th key={i}>{v}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {tData.map((v, i) => (
-              <tr key={i}>
-                {helper.map((iv, ii) => (
-                  <td>{v[iv]}</td>
+                {tHeader.map((v, i) => (
+                  <th key={i + v}>{v}</th>
                 ))}
               </tr>
-            ))}
-            {/* <tr>
+            </thead>
+            <tbody>
+              {tData.map((v, i) => (
+                <tr key={i}>
+                  {helper.map((iv, ii) => (
+                    <td>{v[iv]}</td>
+                  ))}
+                </tr>
+              ))}
+              {/* <tr>
             <td>Tiger Nixon</td>
             <td>System Architect</td>
             <td>Edinburgh</td>
@@ -70,8 +71,9 @@ const Table = (props) => {
               </button>
             </td>
           </tr> */}
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );

@@ -34,6 +34,7 @@
     "react-to-print": "^2.11.0",
     "react-toastify": "^6.0.9",
     "reactjs-popup": "^2.0.4",
+    "recompose": "^0.30.0",
     "request": "^2.88.2"
   },
   "scripts": {

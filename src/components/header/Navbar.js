@@ -34,18 +34,28 @@ export const Navbar = (props) => {
               </NavLink>
             </li>
             <li className="dropdown">
-              <a className="dropdown-toggle" data-toggle="dropdown" href="#">
+              {/* <a  href="about">
+               
+              </a> */}
+              <NavLink
+                className="dropdown-toggle"
+                data-toggle="dropdown"
+                to="/about"
+              >
                 About <span className="caret"></span>
-              </a>
+              </NavLink>
               <ul className="dropdown-menu">
                 <li>
-                  <a href="#">About School</a>
+                  <NavLink to="/about/school">About School</NavLink>
+                  {/* <a href="about/school">About School</a> */}
                 </li>
                 <li>
-                  <a href="#">About Teachers</a>
+                  <NavLink to="/about/teacher">About Teachers</NavLink>
+                  {/* <a href="#"></a> */}
                 </li>
                 <li>
-                  <a href="#">About Students</a>
+                  <NavLink to="/about/student">About Students</NavLink>
+                  {/* <a href="#">About Students</a> */}
                 </li>
               </ul>
             </li>

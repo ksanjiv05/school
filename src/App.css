@@ -50,7 +50,7 @@ body {
 
 .input-group {
   width: 100%;
-  margin-bottom: 25px;
+  margin-top: 27px;
 }
 .fgt {
   float: right;
@@ -268,8 +268,32 @@ a {
   float: right;
 }
 .dataTables_filter > label {
-  color: #b3adad;
+  color: #d6d1d1;
+  font-size: 18px;
+  font-family: monospace;
 }
+div.dataTables_wrapper div.dataTables_filter input {
+  margin-left: 0.5em;
+  display: inline-block;
+  width: auto;
+  background-color: #1a4b5a;
+  color: white;
+  font-size: 16px;
+}
+.pagination a {
+  height: 34px;
+  font-size: 13px;
+  font-family: monospace;
+}
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+  margin: 2px 0;
+  white-space: nowrap;
+  margin-right: -17px;
+}
+.dataTables_info {
+  font-family: monospace;
+}
+/**-------------------------------------*/
 .leftchart {
   width: 50%;
   height: 100%;
@@ -369,6 +393,7 @@ a {
 .nav-tabs > li > a {
   border-radius: 0;
   border: 0;
+  font-family: monospace;
   background: linear-gradient(-70deg, rgb(3 6 56 / 24%) 35%, #010627 99%);
 }
 
@@ -498,6 +523,31 @@ a {
   font-weight: 600;
 }
 
+.btn-default {
+  color: #d8d4d4;
+  background-color: #071534;
+  border-color: #f3e8e8;
+  font-family: monospace;
+}
+
+.error-div {
+  width: 100%;
+}
+.download-heading {
+  font-family: cursive;
+  border-bottom: 1px solid;
+  display: inline-block;
+  color: #ffffffdb;
+  font-size: 29px;
+  padding: 4px;
+  background-color: #02062b;
+}
+.download-link {
+  cursor: pointer;
+}
+.download-link:hover {
+  color: #bd4051;
+}
 @media screen and (min-width: 480px) {
   .navbar {
     position: inherit;

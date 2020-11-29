@@ -1,43 +1,100 @@
 import React, { useState, useEffect } from 'react';
-import Util from '../../util/Util';
+import { toaster } from 'evergreen-ui';
 import NumberFormat from 'react-number-format';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import { pure } from 'recompose';
 
 //style={Object.assign(Util.ButtonY, Util.Font, { borderRadius: "17px" })}
+let statex = true;
 export const Register = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    cpassword: '',
+    dob: '',
+    email: '',
+    lname: '',
+    name: '',
+    password: '',
+    phone: '',
+    username: '',
+  });
   const [email, setEmail] = useState({});
-  const [ready, setReady] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    dob: '',
+    email: '',
 
-  const clickHandle = () => {
-    console.log(email);
-    console.log(data.cpassword, data.password);
-    if (data.password !== data.cpassword) {
-      setReady(true);
-      {
-        setErrors((preSate) => ({
-          ...preSate,
-          password: 'Password mismatch !!!',
-        }));
-      }
-      toast.warning('Password mismatch !!!');
+    name: '',
+    password: '',
+    phone: '',
+    username: '',
+  });
+  // const [ready, setReady] = useState(true);
+  const validateFrom = (key) => {
+    let value = '';
+    switch (key) {
+      case 'password':
+        // console.log('-----------');
+        value =
+          data['password'].length < 8
+            ? 'Password length should be minimum 8 charecter'
+            : value;
+        value =
+          data[key] != data['cpassword']
+            ? 'Password and confirm password must be match'
+            : value;
+
+        handelErrors(key, value);
+        break;
+      case 'email':
+        // value = data['email'].length < 5 ? 'Please enter valid email' : '';
+        const emailrg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+        value = emailrg.exec(data[key]) ? '' : 'Please enter valid email';
+
+        handelErrors(key, value);
+        break;
+
+      case 'phone':
+        if (data.phone != undefined && data.phone.length == 10) break;
+        data.phone = data.phone != undefined ? data.phone.split(' ')[1] : '';
+        value =
+          data.phone == undefined || data.phone.length != 10
+            ? 'Please enter vaild phone number '
+            : '';
+        handelErrors(key, value);
+        break;
+      case 'name':
+        value = data.name.length < 5 ? 'Please enter valid name' : '';
+        handelErrors(key, value);
+        break;
+      case 'username':
+        value = data.username.length < 5 ? 'Please enter valid usename' : '';
+        handelErrors(key, value);
+        break;
     }
-    //   if(data.phone.length() !== 10) {
-    //   setReady(true);
-    //   {setErrors(preSate=>({
-    //     ...preSate,
-    //     password:"Plaese Enter valid mobile number !!!"
-    //   }))}
-    // }
+  };
 
-    if (ready == false) {
-      data.email = email.email;
-      data.phone = data.phone.split(' ')[1];
-      console.log(data);
+  const handelErrors = (key, value) => {
+    setErrors((prevData) => ({
+      ...prevData,
+      [key]: value,
+    }));
+    if (value.length > 1) {
+      statex = false;
+    } else {
+      if (statex == false) {
+        statex = false;
+      } else statex = true;
+    }
+  };
+  const clickHandle = async () => {
+    data.email = email.email;
+    statex = true;
+    Object.keys(data).map((key, i) => {
+      validateFrom(key);
+    });
 
-      console.log('goo.', ready);
+    if (statex) {
       axios
         .post(process.env.REACT_APP_API_URL + '/api/user', data, {})
         .then((res) => {
@@ -45,13 +102,20 @@ export const Register = () => {
             console.log(res.data.success.token);
             localStorage.setItem('accessToken', res.data.success.token);
             sessionStorage.setItem('email', res.data.success.email);
-            toast.success('SignUp Scccessfully ');
+
+            toaster.success('SignUp Scccessfully ', {
+              duration: 2,
+            });
           }
         })
         .catch((err) => {
-          toast.error('Some Error');
+          toaster.danger('Server Error ', {
+            duration: 2,
+          });
         });
-    } else return;
+    } else {
+      console.log('------------uuu------');
+    }
   };
   const handelEmail = (ev) => {
     const { name, value } = ev.target;
@@ -92,7 +156,9 @@ export const Register = () => {
                   onChange={(ev) => handelChange(ev)}
                 />
               </div>
-
+              <div className="col-md-6 error-div">
+                <span className="error">{errors.name}</span>
+              </div>
               <div className="input-group">
                 <span className="input-group-addon">
                   <i className="glyphicon glyphicon-calendar"></i>
@@ -120,7 +186,9 @@ export const Register = () => {
                   onChange={(ev) => handelChange(ev)}
                 />
               </div>
-
+              <div className="col-md-6 error-div">
+                <span className="error">{errors.username}</span>
+              </div>
               <div className="input-group">
                 <span className="input-group-addon">
                   <i className="glyphicon glyphicon-lock"></i>
@@ -133,6 +201,9 @@ export const Register = () => {
                   placeholder="Password"
                   onChange={(ev) => handelChange(ev)}
                 />
+              </div>
+              <div className="col-md-6 error-div">
+                <span className="error">{errors.password}</span>
               </div>
             </div>
 
@@ -150,6 +221,7 @@ export const Register = () => {
                   onChange={(ev) => handelChange(ev)}
                 />
               </div>
+
               <div className="input-group">
                 <span className="input-group-addon">
                   <i className="glyphicon glyphicon-envelope"></i>
@@ -163,6 +235,9 @@ export const Register = () => {
                   onBlur={(ev) => handelEmail(ev)}
                 />
               </div>
+              <div className="col-md-6 error-div">
+                <span className="error">{errors.email}</span>
+              </div>
               <div className="input-group">
                 <span className="input-group-addon">
                   <i className="glyphicon glyphicon-phone"></i>
@@ -172,8 +247,12 @@ export const Register = () => {
                   format="+91 ##########"
                   className="form-control"
                   name="phone"
+                  placeholder="contact number"
                   onChange={(ev) => handelChange(ev)}
                 />
+              </div>
+              <div className="col-md-6 error-div">
+                <span className="error">{errors.phone}</span>
               </div>
               <div className="input-group">
                 <span className="input-group-addon">
@@ -188,6 +267,9 @@ export const Register = () => {
                   onChange={(ev) => handelChange(ev)}
                 />
               </div>
+              <div className="col-md-6 error-div">
+                <span className="error">{errors.password}</span>
+              </div>
             </div>
 
             <div className="input-group" style={{ padding: '0% 4% 0% 4%' }}>
@@ -197,6 +279,7 @@ export const Register = () => {
                   backgroundColor: 'rgb(1 6 39)',
                   color: '#e2dada',
                   borderRadius: '17px',
+                  marginTop: '27px',
                 }}
                 className="form-control "
                 value="Register"
